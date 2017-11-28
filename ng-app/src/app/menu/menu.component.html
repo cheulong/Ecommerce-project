@@ -1,0 +1,48 @@
+<nav class="header">
+  <div >
+
+    <div class="col-md-2 brand">
+      <div class="brand-logo">
+      <a routerLink="/view-product">
+        WEAR
+      </a>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <ul class="menu-item">
+          <li class="col-md-3 menu-product" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/product">Product</a></li>
+          <li class="col-md-3 menu-men" routerLinkActive="active"><a  [routerLink]="['/product', 'men']">Men</a></li>
+          <li class="col-md-3 menu-women" routerLinkActive="active"><a  [routerLink]="['/product', 'women']">Women</a></li>
+          <li class="col-md-3 menu-shoe" routerLinkActive="active"><a  [routerLink]="['/product', 'shoe']">Shoe</a></li>
+        </ul>
+
+
+
+
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
+    </div>
+      <div class="col-md-2 menu-button">
+        <div class="row">
+        <button type="button" class="col-md-6 btn profile-btn">Profile</button>
+        <button type="button" class="col-md-6 btn cart-btn">Cart</button>
+        </div>
+
+      </div>
+
+  </div><!-- /.container-fluid -->
+</nav>
