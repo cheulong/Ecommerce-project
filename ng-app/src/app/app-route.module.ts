@@ -2,15 +2,33 @@ import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {ViewProductComponent} from "./product/view-product/view-product.component";
 import {HeroViewComponent} from "./hero-view/hero-view.component";
+import {AuthenticateComponent} from "./authentication/authenticate/authenticate.component";
+import {CartComponent} from "./cart/cart.component";
+import {ConfirmationPageComponent} from "./confirmation-page/confirmation-page.component";
+import {PaymentMethodComponent} from "./payment-method/payment-method/payment-method.component";
 
 const appRoutes: Routes=[
   { path: '', redirectTo: 'hero-view', pathMatch: 'full' },
-  { path: 'product',component: ViewProductComponent},
+  { path: 'product',component: HeroViewComponent},
 
   {
     path: 'hero-view',component:HeroViewComponent
   },
-
+  {
+    path: 'cart',component:CartComponent
+  },
+  {
+    path: 'authentication',component:AuthenticateComponent
+  },
+  {
+    path: 'confirm-page',component:ConfirmationPageComponent
+  },
+  {
+    path: 'product-view',component:ViewProductComponent
+  },
+  {
+    path: 'payment',component:PaymentMethodComponent
+  },
   {
     path: '**',component:HeroViewComponent
   }

@@ -1,0 +1,32 @@
+.row{
+  margin-bottom: 30px;
+}
+.imageBox{
+  position: relative;
+  overflow: hidden;
+
+}
+.imageBox img {
+  width: 100%;
+}
+.textBox{
+  position: absolute;
+  bottom:-100%;
+  left:0;
+  width:100%;
+  height:100%;
+  background: #78e7ce;
+  transition: .5s;
+}
+.textBox>div{
+  color: white;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.imageBox:hover .textBox{
+ bottom: 0%;
+}

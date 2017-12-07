@@ -10,6 +10,12 @@ import { HeroViewComponent } from './hero-view/hero-view.component';
 import { AuthenticateComponent } from './authentication/authenticate/authenticate.component';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { CartComponent } from './cart/cart.component';
+import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
+import { BankTransferComponent } from './payment-method/bank-transfer/bank-transfer.component';
+import { CreditcardComponent } from './payment-method/creditcard/creditcard.component';
+import { PaypalPaymentComponent } from './payment-method/paypal-payment/paypal-payment.component';
+import { PaymentMethodComponent } from './payment-method/payment-method/payment-method.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,12 @@ import { SignInComponent } from './authentication/sign-in/sign-in.component';
     AuthenticateComponent,
     SignUpComponent,
     SignInComponent,
+    CartComponent,
+    ConfirmationPageComponent,
+    BankTransferComponent,
+    CreditcardComponent,
+    PaypalPaymentComponent,
+    PaymentMethodComponent,
 
   ],
   imports: [

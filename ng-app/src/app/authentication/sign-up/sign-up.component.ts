@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
+  isOpen=true;
   constructor() { }
 
   ngOnInit() {
   }
-
+  open(){
+    this.isOpen=!this.isOpen;
+  }
 }
