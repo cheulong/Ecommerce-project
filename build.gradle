@@ -33,6 +33,11 @@ dependencies {
 	compile group: 'org.springframework.security', name: 'spring-security-core', version: '2.0.2'
 	compile group: 'org.springframework.security', name: 'spring-security-config', version: '3.2.0.RELEASE'
 	compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.0.2.RELEASE'
-
+	compile group: 'org.projectlombok', name: 'lombok'
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("io.jsonwebtoken:jjwt:0.7.0")
+	compile("org.springframework.boot:spring-boot-starter-data-rest")
+	compile("org.springframework.mobile:spring-mobile-device")
 
 }
