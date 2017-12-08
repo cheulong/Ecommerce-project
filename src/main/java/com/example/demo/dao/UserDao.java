@@ -10,5 +10,7 @@ public interface UserDao {
     User findByUsername(String username);
     void delete(long id);
     List<User> getAll();
-    List<User> searchUser(String text);
+
+   
+
 }

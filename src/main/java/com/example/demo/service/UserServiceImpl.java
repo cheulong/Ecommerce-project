@@ -5,28 +5,26 @@ import com.example.demo.entity.User;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
+
+
     @Override
     public List<User> getAll() {
+       return null;
+    }
+
+    @Override
+    public User addMember(User user) {
         return null;
     }
 
     @Override
-    public List<User> searchUser(String text) {
-        return null;
+    public void deleteMember(long id) {
+
     }
 
     @Override
-    public User addCustomer(User user) {
+    public User addShopkeeper(User user) {
         return null;
-    }
-
-    @Override
-    public User addStaff(User user) {
-        return null;
-    }
-
-    @Override
-    public void deleteUser(long id) {
-
     }
 }
+

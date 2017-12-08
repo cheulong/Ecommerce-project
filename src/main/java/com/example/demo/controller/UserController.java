@@ -15,12 +15,12 @@ public class UserController {
 
     @PostMapping("/user")
     public User addCustomer(@RequestBody User user) {
-        return userService.addCustomer(user);
+        return userService.addMember(user);
     }
 
     @PostMapping("/user/staff")
-    public User addStaff(@RequestBody User user) {
-        return userService.addStaff(user);
+    public User addShopkeeper(@RequestBody User user) {
+        return userService.addShopkeeper(user);
     }
 
     @GetMapping("/user")
@@ -28,14 +28,9 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("/user/search/{text}")
-    public List<User> searchUser(@PathVariable("text") String text) {
-        return userService.searchUser(text);
-    }
-
     @DeleteMapping("/user/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
-        userService.deleteUser(id);
+        userService.deleteMember(id);
         return ResponseEntity.ok().build();
     }
 
