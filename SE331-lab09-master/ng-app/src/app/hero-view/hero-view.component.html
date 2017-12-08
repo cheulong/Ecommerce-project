@@ -1,0 +1,16 @@
+<div style="margin-top: 40px">
+  <div class="row">
+    <div *ngFor="let product of products">
+      <div class="col-md-3 imageBox" (click)="showDetail(product)">
+        <img class="imageSize" [src]="product.image" alt="">
+        <div class="textBox">
+          <div class="textBox-content">
+          <h4>{{product.productName}}</h4>
+          <p>Price: {{product.productPrice}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

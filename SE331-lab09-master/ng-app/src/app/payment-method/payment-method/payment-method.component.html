@@ -1,0 +1,20 @@
+<div class="payment">
+  <div class="col-md-3">
+    <ul>
+      <li><a>Bank Transfer</a></li>
+      <li><a >Credit Card</a></li>
+      <li><a >Paypal</a></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+   <span [hidden]=!bank>
+    <div class="col-md-4"><app-bank-transfer></app-bank-transfer></div>
+     </span>
+    <span [hidden]=!credit>
+  <div class="col-md-4"><app-creditcard></app-creditcard></div>
+      </span>
+    <span [hidden]=!paypal></span>
+    <div class="col-md-4"><app-paypal-payment></app-paypal-payment></div>
+  </div>
+
+</div>
