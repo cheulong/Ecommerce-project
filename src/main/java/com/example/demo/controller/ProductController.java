@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.entity.Product;
 import com.example.demo.service.ProductService;
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -24,8 +23,9 @@ import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.util.List;
 
+@RestController
 public class ProductController {
-    @Autowired
+
     ProductService productService;
 
     @GetMapping("/product")
@@ -41,6 +41,9 @@ public class ProductController {
         }
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @Value("${server.urlServerDir}")
+    String urlServerDir;
 
     @PostMapping("/product")
     public Product addProduct(@RequestBody Product product) {
@@ -85,7 +88,7 @@ public class ProductController {
             return ResponseEntity.status(202).build();
         } catch (IOException e) {
             return ResponseEntity.status(500).build();
-        } 
+        }
     }
 
     @DeleteMapping("/product/{id}")

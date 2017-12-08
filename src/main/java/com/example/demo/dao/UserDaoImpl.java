@@ -4,10 +4,13 @@ import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
+@Profile("DBDataSource")
 public class UserDaoImpl implements UserDao {
+
     @Autowired
     UserRepository userRepository;
 
