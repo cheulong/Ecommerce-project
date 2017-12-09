@@ -19,6 +19,7 @@ import { PaymentMethodComponent } from './payment-method/payment-method/payment-
 import {ProductService} from "./service/product.service";
 import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
+import { ListProductComponent } from './product/list-product/list-product.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {FormsModule} from "@angular/forms";
     CreditcardComponent,
     PaypalPaymentComponent,
     PaymentMethodComponent,
+    ListProductComponent,
 
   ],
   imports: [

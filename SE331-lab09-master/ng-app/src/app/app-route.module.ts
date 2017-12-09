@@ -6,6 +6,7 @@ import {AuthenticateComponent} from "./authentication/authenticate/authenticate.
 import {CartComponent} from "./cart/cart.component";
 import {ConfirmationPageComponent} from "./confirmation-page/confirmation-page.component";
 import {PaymentMethodComponent} from "./payment-method/payment-method/payment-method.component";
+import {ListProductComponent} from "./product/list-product/list-product.component";
 
 const appRoutes: Routes=[
   { path: '', redirectTo: 'hero-view', pathMatch: 'full' },
@@ -25,6 +26,9 @@ const appRoutes: Routes=[
   },
   {
     path: 'detail/:id',component:ViewProductComponent
+  },
+  {
+    path: 'list-product',component:ListProductComponent
   },
   {
     path: 'payment',component:PaymentMethodComponent

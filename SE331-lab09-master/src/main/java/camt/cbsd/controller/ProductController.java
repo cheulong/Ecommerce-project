@@ -7,6 +7,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -89,7 +90,7 @@ public class ProductController {
     @GET
     @Path("/images/{fileName}")
     @Produces({"image/png", "image/jpg", "image/gif"})
-    public Response getStuentImage(@PathParam("fileName") String filename) {
+    public Response getProductImage(@PathParam("fileName") String filename) {
         File file = Paths.get(imageServerDir + filename).toFile();
         if (file.exists()) {
             Response.ResponseBuilder responseBuilder = Response.ok((Object) file);
@@ -103,7 +104,7 @@ public class ProductController {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getStudent(@PathParam("id") long id) {
+    public Response getProduct(@PathParam("id") long id) {
         Product product = productService.findById(id);
         if (product != null)
             return Response.ok(product).build();
@@ -111,5 +112,22 @@ public class ProductController {
             //http code 204
             return Response.status(Response.Status.NO_CONTENT).build();
 
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response deleteProduct(@PathParam("id") long id) {
+        productService.removeProductById(id);
+        return Response.ok(productService.list()).build();
+    }
+
+    @PUT
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateProduct(@RequestBody Product product){
+        productService.updateProduct(product);
+        return Response.ok(productService.list()).build();
     }
 }

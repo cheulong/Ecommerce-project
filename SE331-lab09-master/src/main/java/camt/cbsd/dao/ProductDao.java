@@ -8,8 +8,10 @@ import java.util.List;
 public interface ProductDao {
     Product add(Product course);
     List<Product> list();
-
     Product findById(long id);
+    void removeProductById(long id);
 
 
+
+    void updateProduct(Product product);
 }

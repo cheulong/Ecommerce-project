@@ -1,0 +1,43 @@
+<div class="list-product">
+  <div class="title">
+    <h1 style="float: left">ProductList</h1>
+    <button class="btn btn-primary" style="float: right;margin-top: 20px;margin-right: 20px" (click)="addProduct()">Add Product</button>
+  </div>
+  <table>
+    <tr>
+      <th class="edit-cell">ID</th>
+      <th class="edit-cell">Image</th>
+      <th class="edit-cell">Product Name</th>
+      <th class="edit-cell">Description</th>
+      <th class="edit-cell">Price/Unit</th>
+      <th class="edit-cell">Size</th>
+      <th class="edit-cell">Color</th>
+      <th class="edit-cell">QTY</th>
+      <td class="btn-cell"></td>
+      <td class="btn-cell"></td>
+    </tr>
+    <tr [hidden]=!isAdd>
+      <td></td>
+      <td></td>
+      <td><input ></td>
+      <td><input ></td>
+      <td><input >$</td>
+      <td><input ></td>
+      <td><input ></td>
+      <td><input></td>
+      <td><button class="btn btn-danger" (click)="addProduct(pro)"><i class="fa fa-ban" aria-hidden="true"></i></button></td>
+    </tr>
+    <tr *ngFor="let product of products" (keyup)="updateProduct(product)">
+      <td>{{product.productId}}</td>
+      <td class="imageSize"><img [src]="product.image"></td>
+      <td><input [(ngModel)]="product.productName"></td>
+      <td><input [(ngModel)]="product.description"></td>
+      <td><input [(ngModel)]="product.productPrice">$</td>
+      <td><input [(ngModel)]="product.size"></td>
+      <td><input [(ngModel)]="product.color"></td>
+      <td><input [(ngModel)]="product.productQuantity"></td>
+      <td><button class="btn btn-danger" (click)="deleteProduct(product)"><i class="fa fa-ban" aria-hidden="true"></i></button></td>
+    </tr>
+  </table>
+  <br>
+</div>

@@ -42,6 +42,16 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
+    @Override
+    @Transactional
+    public void removeProductById(long id){
+        this.productDao.removeProductById(id);
+    }
+    @Override
+    @Transactional
+    public void updateProduct( Product product){
 
+            this.productDao.updateProduct(product);
 
+    }
 }

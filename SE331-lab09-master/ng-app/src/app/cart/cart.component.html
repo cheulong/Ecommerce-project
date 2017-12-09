@@ -11,21 +11,13 @@
       <td>Total</td>
       <td>Delete</td>
     </tr>
-    <tr>
-    <td>1</td>
-    <td>Mario T-shirt</td>
-    <td>15$</td>
-    <td><input type="text" value="1"></td>
-    <td>15$</td>
-    <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Mario T-shirt</td>
-      <td>15$</td>
-      <td><input type="text" value="1"></td>
-      <td>15$</td>
-      <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+    <tr *ngFor="let item of cartItems">
+    <td>{{item.productId}}</td>
+    <td>{{item.productName}}</td>
+    <td>{{item.productPrice}}$</td>
+    <td><input type="text" [(ngModel)]="item.productQuantity"></td>
+    <td>{{totalPrice}}$</td>
+    <td><i class="fa fa-trash-o" aria-hidden="true" (click)="removeItem()"></i></td>
     </tr>
     <tr>
       <td colspan="4">
