@@ -40,7 +40,10 @@ public class ProductDaoImpl implements ProductDao {
     public void updateProduct(Product product){
         productRepository.save(product);
     }
-
+    @Override
+    public List<Product> findByProductName(String searchText){
+        return productRepository.findByProductNameIgnoreCaseContaining(searchText);
+    }
     }
 
 

@@ -27,6 +27,7 @@ export class ConfirmationPageComponent implements OnInit {
       this.totalCartPrice+=item.totalPrice;
 
     this.totalCartPrice-=this.totalCartPrice*this.cartService.getVoucher();
+
   }
   backClicked() {
     this._location.back();

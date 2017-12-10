@@ -16,4 +16,7 @@ public interface ProductService {
 
     @Transactional
     void updateProduct(Product product);
+
+    @Transactional
+    List<Product> queryProduct(String query);
 }

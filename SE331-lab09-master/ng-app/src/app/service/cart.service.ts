@@ -3,7 +3,7 @@ import {Product} from "../product/product";
 import {Item} from "./item";
 
 export class CartService{
-  getVoucherPrice:number;
+  getVoucherPrice:number=0;
   selectedItems: Item[] = [];
   addItem(product: Product, productQuantity: number,totalPrice:number): void {
 
@@ -13,11 +13,11 @@ export class CartService{
     return this.selectedItems;
   }
   setVoucher(voucher:number):any{
-    if(voucher!==0)
+    if(voucher==0.05)
     this.getVoucherPrice=voucher;
-    else
-      this.getVoucherPrice=1;
-    console.log(this.getVoucherPrice)
+    else this.getVoucherPrice=0;
+
+
   }
   getVoucher():number{
     return this.getVoucherPrice;

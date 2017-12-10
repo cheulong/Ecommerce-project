@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 @Profile("DBDataSource")
 public class UserDaoDBImpl implements UserDao {
-    @Autowired
+   @Autowired
     UserRepository userRepository;
 
 
@@ -29,7 +29,8 @@ public class UserDaoDBImpl implements UserDao {
 
     @Override
     public User findById(long id) {
-        return userRepository.findById(id);
+      //  return userRepository.findById(id);
+        return null;
     }
 
     @Override

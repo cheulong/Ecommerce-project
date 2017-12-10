@@ -12,5 +12,10 @@
       </div>
     </div>
   </div>
-
 </div>
+<input type="text" class="form-control" placeholder="Search for..."
+       [(ngModel)]="search">
+<span class="input-group-btn">
+ <button class="btn btn-default" type="button"
+         (click)="onSearch()">Go!</button>
+</span>

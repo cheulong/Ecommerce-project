@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, RequestOptions,Headers, Response} from "@angular/http";
+import {Http, RequestOptions,Headers, Response,URLSearchParams} from "@angular/http";
 import {Product} from "../product/product";
 import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/toPromise';
@@ -46,9 +46,9 @@ export class ProductService {
       ;
   }
 
-  addProduct(product: Product, file: any) {
+  addProduct(product: Product, file?: any) {
     let formData = new FormData();
-    let fileName: string;
+
 
     formData.append('file', file);
     return this.http.post('http://localhost:8080/product/image', formData)
@@ -81,22 +81,56 @@ export class ProductService {
 
   updateProduct(product:Product,file?: any){
     let formData = new FormData();
-    let fileName: string;
+
+    file=product.image;
 
     formData.append('file', file);
-    return this.http.put('http://localhost:8080/product/image', formData)
+    return this.http.post('http://localhost:8080/product/image', formData)
       .flatMap(filename => {
-        product.image = filename.text();
+        product.image = file;
         let headers = new Headers({'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers, method: 'put'});
+        let options = new RequestOptions({headers: headers, method: 'post'});
         let body = JSON.stringify(product);
-        return this.http.put('http://localhost:8080/product/'+product.id, body, options)
+        return this.http.put('http://localhost:8080/product', body, options)
           .map(res => {
-            return res.json();
+            return res.json()
           })
           .catch((error: any) => {
             return Observable.throw(new Error(error.status))
           })
       })
   }
+  //findProduct(search:string){
+    // let product:Product;
+    // let params:URLSearchParams=new URLSearchParams();
+    // params.set('search',search);
+    // return this.http.get('http://localhost:8080/product/'+search)
+    //   .map((res: Response) => {
+    //     if (res) {
+    //       if (res.status === 200) {
+    //         return res.json()
+    //       }
+    //       if (res.status === 204) {
+    //         return null;
+    //       }
+    //     }
+    //   })
+    //   .catch((error: any) => {
+    //     if (error.status === 500) {
+    //       return Observable.throw(new Error(error.status));
+    //     }
+    //     else if (error.status === 400) {
+    //       return Observable.throw(new Error(error.status));
+    //     }
+    //     else if (error.status === 409) {
+    //       return Observable.throw(new Error(error.status));
+    //     }
+    //     else if (error.status === 406) {
+    //       return Observable.throw(new Error(error.status));
+    //     }
+    //     return error;
+    //   })
+    //   ;
+
+  //}
 }

@@ -1,18 +1,26 @@
 package camt.cbsd.controller;
-
+import org.springframework.http.ResponseEntity;
 import camt.cbsd.entity.Product;
 import camt.cbsd.services.ProductService;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.apache.commons.io.FilenameUtils;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.data.repository.query.Param;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -129,5 +137,19 @@ public class ProductController {
     public Response updateProduct(@RequestBody Product product){
         productService.updateProduct(product);
         return Response.ok(productService.list()).build();
+    }
+
+    @GET
+    @Path("{search}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response queryProduct( @PathParam("search") String query) {
+        List<Product> products = productService.queryProduct(query);
+        if (products != null)
+            return Response.ok(products).build();
+        else
+            //http code 204
+            return Response.noContent().build();
+
     }
 }
