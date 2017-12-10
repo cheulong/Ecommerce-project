@@ -100,37 +100,37 @@ export class ProductService {
           })
       })
   }
-  //findProduct(search:string){
-    // let product:Product;
-    // let params:URLSearchParams=new URLSearchParams();
-    // params.set('search',search);
-    // return this.http.get('http://localhost:8080/product/'+search)
-    //   .map((res: Response) => {
-    //     if (res) {
-    //       if (res.status === 200) {
-    //         return res.json()
-    //       }
-    //       if (res.status === 204) {
-    //         return null;
-    //       }
-    //     }
-    //   })
-    //   .catch((error: any) => {
-    //     if (error.status === 500) {
-    //       return Observable.throw(new Error(error.status));
-    //     }
-    //     else if (error.status === 400) {
-    //       return Observable.throw(new Error(error.status));
-    //     }
-    //     else if (error.status === 409) {
-    //       return Observable.throw(new Error(error.status));
-    //     }
-    //     else if (error.status === 406) {
-    //       return Observable.throw(new Error(error.status));
-    //     }
-    //     return error;
-    //   })
-    //   ;
+  findProduct(search:string){
+    let product:Product;
+    let params:URLSearchParams=new URLSearchParams();
+    params.set('search',search);
+    return this.http.get('http://localhost:8080/product/search/'+search)
+      .map((res: Response) => {
+        if (res) {
+          if (res.status === 200) {
+            return res.json()
+          }
+          if (res.status === 204) {
+            return null;
+          }
+        }
+      })
+      .catch((error: any) => {
+        if (error.status === 500) {
+          return Observable.throw(new Error(error.status));
+        }
+        else if (error.status === 400) {
+          return Observable.throw(new Error(error.status));
+        }
+        else if (error.status === 409) {
+          return Observable.throw(new Error(error.status));
+        }
+        else if (error.status === 406) {
+          return Observable.throw(new Error(error.status));
+        }
+        return error;
+      })
+      ;
 
-  //}
+  }
 }

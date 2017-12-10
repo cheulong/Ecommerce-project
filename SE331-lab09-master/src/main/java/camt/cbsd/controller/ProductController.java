@@ -140,7 +140,7 @@ public class ProductController {
     }
 
     @GET
-    @Path("{search}")
+    @Path("/search/{search}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response queryProduct( @PathParam("search") String query) {
