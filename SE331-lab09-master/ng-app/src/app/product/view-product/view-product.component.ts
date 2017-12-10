@@ -39,7 +39,7 @@ export class ViewProductComponent implements OnInit {
   }
 
   addToCart(product:Product):void{
-    this.cartService.addItem(this.product,this.qtn,this.totalPrice)
+     this.cartService.addItem(this.product,this.qtn,this.totalPrice)
     this.router.navigate(['cart']);
   }
 }

@@ -4,7 +4,6 @@ import {CartService} from "../service/cart.service";
 import {Item} from "../service/item";
 import {Location} from '@angular/common';
 import {Router} from "@angular/router";
-import {isUndefined} from "util";
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -38,13 +37,11 @@ export class CartComponent implements OnInit {
   }
   calculateTotalCartPrice(voucher?:number){
     this.totalCartPrice=0;
-
     for(let item of this.cartItems)
     this.totalCartPrice+=item.totalPrice;
-    console.log(this.voucher)
     if(voucher==0.05) {
       this.voucher=voucher
-
+      console.log(voucher)
       this.totalCartPrice -= this.totalCartPrice * voucher
     }
   }
@@ -70,7 +67,6 @@ export class CartComponent implements OnInit {
       this.invalid=false;
       this.calculateTotalCartPrice(0.05)
     }else {
-      this.calculateTotalCartPrice(1)
       this.success = false;
       this.invalid=true;
     }

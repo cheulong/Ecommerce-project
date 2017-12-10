@@ -34,7 +34,6 @@ public class ProductServiceImpl implements ProductService {
     public Product add(Product product) {
         return productDao.add(product);
     }
-
     @Override
     @Transactional
     public Product findById(long id){
@@ -51,8 +50,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional
     public void updateProduct( Product product){
+
             this.productDao.updateProduct(product);
+
     }
+
+
     @Override
     @Transactional
     public List<Product> queryProduct(String query){
