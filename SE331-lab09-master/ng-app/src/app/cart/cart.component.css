@@ -38,3 +38,12 @@ button[type=submit]{
 .btn-back{
   float: left;
 }
+.btn-delete{
+  background: white;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+input{
+  text-align: center;
+}

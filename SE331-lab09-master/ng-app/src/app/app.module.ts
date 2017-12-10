@@ -20,6 +20,7 @@ import {ProductService} from "./service/product.service";
 import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import { ListProductComponent } from './product/list-product/list-product.component';
+import {CartService} from "./service/cart.service";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ListProductComponent } from './product/list-product/list-product.compon
     PaymentMethodComponent,
     ListProductComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ import { ListProductComponent } from './product/list-product/list-product.compon
 
   ],
 
-  providers: [ProductService],
+  providers: [ProductService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

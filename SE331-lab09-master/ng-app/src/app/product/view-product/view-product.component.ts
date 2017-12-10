@@ -1,7 +1,8 @@
 import {Component, OnInit, Output} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Product} from "../product";
 import {ProductService} from "../../service/product.service";
+import {CartService} from "../../service/cart.service";
 
 @Component({
   selector: 'app-view-product',
@@ -10,7 +11,7 @@ import {ProductService} from "../../service/product.service";
 })
 export class ViewProductComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private productService:ProductService) {}
+  constructor(private route: ActivatedRoute, private productService:ProductService,private cartService:CartService,private router:Router) {}
   cartItems:Product[];
   product:Product;
   isNoData:boolean;
@@ -32,14 +33,13 @@ export class ViewProductComponent implements OnInit {
 
   }
   calculateTotalPrice(){
-    if(this.qtn<=0)
+    if(this.qtn<=0&&this.qtn.valueOf())
       this.qtn=1;
     this.totalPrice=this.qtn*this.product.productPrice;
   }
 
-  addToCart(product:Product){
-    if(this.cartItems.length>0){
-      
-    }
+  addToCart(product:Product):void{
+     this.cartService.addItem(this.product,this.qtn,this.totalPrice)
+    this.router.navigate(['cart']);
   }
 }

@@ -10,8 +10,10 @@ form{
   width: 800px;
   border: solid 0.1px #78e7ce;
   padding: 15px;
+
   margin-bottom: 20px;
   margin-top: 0;
+  margin-left: 0;
   padding-top: 0;
 }
 input{
