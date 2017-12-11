@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 
 
 @Entity
+@Document
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +23,8 @@ import javax.persistence.Id;
 public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    long id;
+    //comment id as a String to use mongoDB
+    Long id;
     String productId;
     String productName;
     double productPrice;

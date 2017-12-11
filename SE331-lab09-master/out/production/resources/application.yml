@@ -24,6 +24,13 @@ server:
 ---
 spring:
   profiles: remote
+  data:
+    mongodb:
+      port: 27017
+      host: localhost
+      database: app1
+
 server:
   baseUrl: https://s3-ap-southeast-1.amazonaws.com/se331/
   imageUrl: pics/
+

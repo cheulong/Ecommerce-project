@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Http, Response,} from "@angular/http";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-paypal-payment',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaypalPaymentComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private http: Http) { }
 
   ngOnInit() {
+
   }
 
 }

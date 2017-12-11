@@ -7,6 +7,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
@@ -34,9 +35,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional
-    public List<User> getStudents(){
+    public List<User> getStudents() {
         List<User> users = userDao.getUsers();
-        for(User user : users){
+        for (User user : users) {
             Hibernate.initialize(user.getKeepProduct());
         }
         return users;
@@ -58,13 +59,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User addUser(User user, String imageFileName, BufferedImage image) throws IOException {
         // save file to the server
-        int newId = userDao.size()+1;
-        String newFilename = newId +"."+ imageFileName;
-        File targetFile = Files.createFile(Paths.get(imageServerDir+newFilename)).toFile();
-        ImageIO.write(image,FilenameUtils.getExtension(imageFileName),targetFile);
+        int newId = userDao.size() + 1;
+        String newFilename = newId + "." + imageFileName;
+        File targetFile = Files.createFile(Paths.get(imageServerDir + newFilename)).toFile();
+        ImageIO.write(image, FilenameUtils.getExtension(imageFileName), targetFile);
 
-       // user.setImage(newFilename);
+        // user.setImage(newFilename);
         userDao.addUser(user);
         return user;
     }
+
+
 }

@@ -2,9 +2,11 @@ package camt.cbsd.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import java.lang.annotation.Documented;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,13 +17,15 @@ import java.util.Optional;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Document
 @Builder
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)    
-    long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    //comment id as a String to use mongoDB
+    Long id;
     String userId;
-   String firstName;
+    String firstName;
    String lastName;
    String email;
    String password;
