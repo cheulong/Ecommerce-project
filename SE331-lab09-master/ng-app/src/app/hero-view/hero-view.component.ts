@@ -11,6 +11,9 @@ import {Router} from "@angular/router";
 export class HeroViewComponent implements OnInit {
   products: Product[];
   search:string;
+  search1:any;
+  search2:any;
+  value:any;
   constructor(private productService: ProductService, private router: Router ) {
   }
 
@@ -23,11 +26,11 @@ export class HeroViewComponent implements OnInit {
     this.router.navigate(['/detail',product.id])
   }
   onSearch(){
-    this.productService.findProduct(this.search)
+    console.log(this.value);
+    this.productService.findProduct(this.search,this.value,this.search1,this.search2)
       .subscribe(
         products=>this.products=products
-
-
       )
   }
+
 }

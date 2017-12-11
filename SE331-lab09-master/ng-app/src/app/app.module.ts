@@ -22,6 +22,8 @@ import {FormsModule} from "@angular/forms";
 import { ListProductComponent } from './product/list-product/list-product.component';
 import {CartService} from "./service/cart.service";
 
+import { SubmitSlipComponent } from './submit-slip/submit-slip.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,8 @@ import {CartService} from "./service/cart.service";
     PaypalPaymentComponent,
     PaymentMethodComponent,
     ListProductComponent,
+
+    SubmitSlipComponent,
 
 
   ],

@@ -19,4 +19,12 @@ public interface ProductService {
 
     @Transactional
     List<Product> queryProduct(String query);
+
+    @Transactional
+    List<Product> queryProductByDes(String query);
+
+
+
+    @Transactional
+    List<Product> queryProductPrice(double query1, double query2);
 }

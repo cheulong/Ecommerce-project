@@ -140,11 +140,37 @@ public class ProductController {
     }
 
     @GET
-    @Path("/search/{search}")
+    @Path("/search/name/{search}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response queryProduct( @PathParam("search") String query) {
+    public Response queryProduct1( @PathParam("search") String query) {
         List<Product> products = productService.queryProduct(query);
+        if (products != null)
+            return Response.ok(products).build();
+        else
+            //http code 204
+            return Response.noContent().build();
+
+    }
+    @GET
+    @Path("/search/des/{search}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response queryProduct2( @PathParam("search") String query) {
+        List<Product> products = productService.queryProductByDes(query);
+        if (products != null)
+            return Response.ok(products).build();
+        else
+            //http code 204
+            return Response.noContent().build();
+
+    }
+    @GET
+    @Path("/search/price/{search1}/{search2}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response queryProduct3( @PathParam("search1") double query1,@PathParam("search2") double query2) {
+        List<Product> products = productService.queryProductPrice(query1,query2);
         if (products != null)
             return Response.ok(products).build();
         else

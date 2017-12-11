@@ -60,4 +60,16 @@ public class ProductServiceImpl implements ProductService {
             return productDao.list();
         return productDao.findByProductName(query);
     }
+    @Override
+    @Transactional
+    public List<Product> queryProductByDes(String query){
+        if(query==null||query.equals(""))
+            return productDao.list();
+        return productDao.findByDescription(query);
+    }
+    @Override
+    @Transactional
+    public List<Product> queryProductPrice(double query1,double query2){
+        return productDao.findByPrice(query1,query2);
+    }
 }

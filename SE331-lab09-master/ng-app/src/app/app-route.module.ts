@@ -7,6 +7,7 @@ import {CartComponent} from "./cart/cart.component";
 import {ConfirmationPageComponent} from "./confirmation-page/confirmation-page.component";
 import {PaymentMethodComponent} from "./payment-method/payment-method/payment-method.component";
 import {ListProductComponent} from "./product/list-product/list-product.component";
+import {SubmitSlipComponent} from "./submit-slip/submit-slip.component";
 
 const appRoutes: Routes=[
   { path: '', redirectTo: 'hero-view', pathMatch: 'full' },
@@ -29,6 +30,9 @@ const appRoutes: Routes=[
   },
   {
     path: 'list-product',component:ListProductComponent
+  },
+  {
+    path: 'slip',component:SubmitSlipComponent
   },
   {
     path: 'payment',component:PaymentMethodComponent

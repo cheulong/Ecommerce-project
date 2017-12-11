@@ -3,6 +3,7 @@ import {Http, RequestOptions,Headers, Response,URLSearchParams} from "@angular/h
 import {Product} from "../product/product";
 import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/toPromise';
+import {SlipImage} from "../submit-slip/slipImage";
 @Injectable()
 export class ProductService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
@@ -45,6 +46,24 @@ export class ProductService {
       })
       ;
   }
+  addSlip(slip:SlipImage,file:any){
+    let formData = new FormData();
+    formData.append('file', file);
+    return this.http.post('http://localhost:8080/slip/image', formData)
+      .flatMap(filename => {
+        slip.image = filename.text();
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers, method: 'post'});
+        let body = JSON.stringify(slip);
+        return this.http.post('http://localhost:8080/slip', body, options)
+          .map(res => {
+            return res.json()
+          })
+          .catch((error: any) => {
+            return Observable.throw(new Error(error.status))
+          })
+      })
+      }
 
   addProduct(product: Product, file?: any) {
     let formData = new FormData();
@@ -100,37 +119,94 @@ export class ProductService {
           })
       })
   }
-  findProduct(search:string){
+  findProduct(search:string,value:any,search1?:any,search2?:any){
     let product:Product;
     let params:URLSearchParams=new URLSearchParams();
     params.set('search',search);
-    return this.http.get('http://localhost:8080/product/search/'+search)
-      .map((res: Response) => {
-        if (res) {
-          if (res.status === 200) {
-            return res.json()
+    if(value==="Name") {
+      return this.http.get('http://localhost:8080/product/search/name/' + search)
+        .map((res: Response) => {
+          if (res) {
+            if (res.status === 200) {
+              return res.json()
+            }
+            if (res.status === 204) {
+              return null;
+            }
           }
-          if (res.status === 204) {
-            return null;
+        })
+        .catch((error: any) => {
+          if (error.status === 500) {
+            return Observable.throw(new Error(error.status));
           }
-        }
-      })
-      .catch((error: any) => {
-        if (error.status === 500) {
-          return Observable.throw(new Error(error.status));
-        }
-        else if (error.status === 400) {
-          return Observable.throw(new Error(error.status));
-        }
-        else if (error.status === 409) {
-          return Observable.throw(new Error(error.status));
-        }
-        else if (error.status === 406) {
-          return Observable.throw(new Error(error.status));
-        }
-        return error;
-      })
-      ;
-
+          else if (error.status === 400) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 409) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 406) {
+            return Observable.throw(new Error(error.status));
+          }
+          return error;
+        })
+        ;
+    }if(value==="Description") {
+      return this.http.get('http://localhost:8080/product/search/des/' + search)
+        .map((res: Response) => {
+          if (res) {
+            if (res.status === 200) {
+              return res.json()
+            }
+            if (res.status === 204) {
+              return null;
+            }
+          }
+        })
+        .catch((error: any) => {
+          if (error.status === 500) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 400) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 409) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 406) {
+            return Observable.throw(new Error(error.status));
+          }
+          return error;
+        })
+        ;
+    }if(value==="Price") {
+      return this.http.get('http://localhost:8080/product/search/price/' + search1+'/'+search2)
+        .map((res: Response) => {
+          if (res) {
+            if (res.status === 200) {
+              return res.json()
+            }
+            if (res.status === 204) {
+              return null;
+            }
+          }
+        })
+        .catch((error: any) => {
+          if (error.status === 500) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 400) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 409) {
+            return Observable.throw(new Error(error.status));
+          }
+          else if (error.status === 406) {
+            return Observable.throw(new Error(error.status));
+          }
+          return error;
+        })
+        ;
+    }
   }
 }

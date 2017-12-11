@@ -12,4 +12,9 @@ public interface ProductDao {
     void removeProductById(long id);
     void updateProduct(Product product);
     List<Product> findByProductName(String searchText);
+
+    List<Product> findByDescription(String searchText);
+
+
+    List<Product> findByPrice(double searchText1, double searchText2);
 }
