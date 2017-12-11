@@ -1,4 +1,4 @@
-package camt.cbsd.entity;
+package camt.cbsd.lab05.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -11,24 +11,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
+/**
+ * Created by Dto on 07-Apr-17.
+ */
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(suppressConstructorProperties = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
-public class Product {
+public class Course {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     long id;
-    String productId;
-    String productName;
-    double productPrice;
-    int productQuantity;
-    String image;
-    String description;
-    String color;
-    String size;
+    String courseId;
+    String courseName;
 
 }

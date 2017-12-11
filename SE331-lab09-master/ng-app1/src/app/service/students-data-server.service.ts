@@ -64,7 +64,7 @@ export class StudentsDataServerService {
 
   addStudent(student: Student,file:any) {
     let formData = new FormData();
-    let fileName: string;
+
 
     formData.append('file', file);
     return this.http.post('http://localhost:8080/student/image', formData)

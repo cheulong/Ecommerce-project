@@ -1,7 +1,7 @@
-package camt.cbsd.dao;
+package camt.cbsd.lab05.dao;
 
-import camt.cbsd.entity.Product;
-import camt.cbsd.repository.ProductRepository;
+import camt.cbsd.lab05.entity.Product;
+import camt.cbsd.lab05.repository.ProductRepository;
 import jersey.repackaged.com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

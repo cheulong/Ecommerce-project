@@ -1,7 +1,7 @@
-package camt.cbsd.services;
+package camt.cbsd.lab05.services;
 
-import camt.cbsd.dao.ProductDao;
-import camt.cbsd.entity.Product;
+import camt.cbsd.lab05.dao.ProductDao;
+import camt.cbsd.lab05.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -72,4 +72,5 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> queryProductPrice(double query1,double query2){
         return productDao.findByPrice(query1,query2);
     }
+
 }

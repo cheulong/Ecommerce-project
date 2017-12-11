@@ -1,26 +1,16 @@
-package camt.cbsd.controller;
-import org.springframework.http.ResponseEntity;
-import camt.cbsd.entity.Product;
-import camt.cbsd.services.ProductService;
-import com.fasterxml.jackson.annotation.JsonView;
+package camt.cbsd.lab05.controller;
+import camt.cbsd.lab05.entity.Product;
+import camt.cbsd.lab05.services.ProductService;
 import org.apache.commons.io.FilenameUtils;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
 
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -34,7 +24,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Component
-
+@RestController
 @ConfigurationProperties(prefix = "server")
 @Path("/product")
 public class ProductController {
@@ -60,7 +50,7 @@ public class ProductController {
     public void setProductService(ProductService productService) {
         this.productService = productService;
     }
-
+    @CrossOrigin
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response list() {
@@ -178,4 +168,5 @@ public class ProductController {
             return Response.noContent().build();
 
     }
+
 }

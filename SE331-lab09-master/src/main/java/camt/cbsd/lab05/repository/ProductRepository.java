@@ -1,6 +1,6 @@
-package camt.cbsd.repository;
+package camt.cbsd.lab05.repository;
 
-import camt.cbsd.entity.Product;
+import camt.cbsd.lab05.entity.Product;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

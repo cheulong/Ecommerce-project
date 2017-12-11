@@ -3,10 +3,22 @@ spring:
     active:
       - DBDataSource
       - inMemoryDB
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 server:
   baseUrl: http://localhost:8080/
-  imageUrl: product/images/
-  imageServerDir: C:/images/lab09/
+  imageUrl: student/images/
+  imageServerDir: c:/bitbucket/images/
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
 ---
 spring:
   profiles: inMemoryDB

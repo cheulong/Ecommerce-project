@@ -21,7 +21,6 @@ export class PaymentMethodComponent implements OnInit {
   }
   payByCredit(){
     this.bank=false;
-
     this.paypal=false;
     this.credit=true;
   }

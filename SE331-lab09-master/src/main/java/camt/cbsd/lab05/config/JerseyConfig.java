@@ -1,6 +1,6 @@
-package camt.cbsd.config;
+package camt.cbsd.lab05.config;
 
-import camt.cbsd.controller.ProductController;
+import camt.cbsd.lab05.controller.ProductController;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;

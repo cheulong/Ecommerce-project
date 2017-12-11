@@ -6,8 +6,8 @@ export class CartService{
   getVoucherPrice:number=0;
   selectedItems: Item[] = [];
   addItem(product: Product, productQuantity: number,totalPrice:number): void {
-
     this.selectedItems.push(new Item(product,productQuantity,totalPrice));
+    localStorage.setItem('list',JSON.stringify(this.selectedItems));
     }
   getSelectedItems():Item[]{
     return this.selectedItems;

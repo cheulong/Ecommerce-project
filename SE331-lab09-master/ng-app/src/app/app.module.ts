@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {AuthenticationService} from "./service/authentication.service";
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { ViewProductComponent } from './product/view-product/view-product.component';
@@ -54,7 +54,7 @@ import { SubmitSlipComponent } from './submit-slip/submit-slip.component';
 
   ],
 
-  providers: [ProductService,CartService],
+  providers: [ProductService,CartService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

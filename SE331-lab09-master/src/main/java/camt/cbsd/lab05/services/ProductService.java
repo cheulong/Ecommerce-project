@@ -1,6 +1,6 @@
-package camt.cbsd.services;
+package camt.cbsd.lab05.services;
 
-import camt.cbsd.entity.Product;
+import camt.cbsd.lab05.entity.Product;
 
 import javax.transaction.Transactional;
 import java.util.List;
