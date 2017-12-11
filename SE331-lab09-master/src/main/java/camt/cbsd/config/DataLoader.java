@@ -16,7 +16,6 @@ import javax.transaction.Transactional;
 public class DataLoader implements ApplicationRunner{
 
 
-
     ProductDao productDao;
     @Autowired
     public void setProductDao(ProductDao productDao) {
@@ -54,6 +53,7 @@ public class DataLoader implements ApplicationRunner{
         productDao.add(product2);
         productDao.add(product3);
         productDao.add(product4);
+
 
 
 
